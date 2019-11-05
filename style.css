@@ -19,37 +19,40 @@ header{
 
 .content{
     display: flex;
-    margin: 1%;
-    flex-wrap: wrap;
-    align-content: stretch;
+    flex-direction: column;
     height: 85vh;
+    margin: 1%;
+    border: black 1px solid;
 }
 
-textarea{
-    width: 95%;
-    height: 10vh;
-    resize: none;
+.upper{
+    display: flex;
+    height: 65vh;
 }
 
-.left{
-    width: 60%;
-    border: 1px solid rgb(149, 149, 149);
-    border-right: none;
-    padding-left: 1%;
+.graphZone{
+    width: 50%;
+    padding-left: 10px;
+    border-bottom: black 1px solid;
 }
 
-.center{
+.dataStruct{
     width: 30%;
-    border: 1px solid rgb(149, 149, 149);
-    border-right: none;
-    padding-left: 1%;
+    padding-left: 10px;
+    border: black solid 1px;
+    border-top: 0;
 }
 
-.right{
-    width: 10%;
-    border: 1px solid rgb(149, 149, 149);
-    padding-left: 1%;
+.weight{
+    width: 20%;
+    padding-left: 10px;
+    border-bottom: black 1px solid;
 }
+
+.result{
+    padding-left: 10px;
+}
+
 
 .hiding{
     display: none;
