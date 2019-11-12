@@ -17,17 +17,31 @@
 
     <div class="content">
         <div class="upper">
-            <div class="graphZone">
-                Graph Zone
-            </div>
+            <form class="graphZone">
+                <div style="margin-bottom: 10px;">
+                    Graph Zone
+                    <div class="graphRadio">
+                        <input type="radio" class="node" name="make" value="1" checked>Node</input>
+                        <input type="radio" class="undirected" name="make" value="2">Undirected edge</input>
+                        <input type="radio" class="directed" name="make" value="3">Directed edge</input><br>
+                    </div>
+                </div>
+                <div class="canvasZone">
+                    <canvas></canvas>
+                </div>
+            </form>
 
             <div class="dataStruct">
                 Data Struct
             </div>
 
-            <div class="weight">
+            <form class="weight">
                 Input weight
-            </div>
+                <div class="weightRadio">
+                    <input type="radio" checked>ON</input>
+                    <input type="radio">OFF</input>
+                </div>
+            </form>
         </div>
 
         <div class="result">
@@ -40,7 +54,11 @@
     </div>
 
     <div>
+        <script src="script/canvas.js"></script>
+        <script src="script/node.js"></script>
+        <script src="script/edge.js"></script>
         <script src="script/main.js"></script>
+        <script src="script/resize.js"></script>
     </div>
 </body>
 </html>
