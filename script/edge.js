@@ -1,2 +1,2 @@
-const btnUndirect = document.querySelector(".undirect");
-const btnDirect = document.querySelector(".direct");
+const radioUndirect = document.querySelector(".undirect");
+const radioDirect = document.querySelector(".direct");
