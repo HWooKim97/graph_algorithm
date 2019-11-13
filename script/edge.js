@@ -1,2 +1,3 @@
-const radioUndirect = document.querySelector(".undirect");
-const radioDirect = document.querySelector(".direct");
+function handleNodeClick(event){
+    event.preventDefault();
+}

@@ -1,39 +1,37 @@
-const radioNode = document.querySelector(".node");
+const dataStructZone = document.querySelector(".dataStructZone");
+const nodeDataStruct = [];
+const nodeButton = [];
+let nodeCount = 0;
 
-const btnNode = [];
-let cntNode = 0;
-
-function resizeNode(){
-    btnNode.forEach(element => {
-        
-    });
+function makeNodeDataStruct(){
+    nodeDataStruct[nodeCount] = document.createElement("li");
+    const span = document.createElement("span");
+    span.innerText = nodeCount + ` - `;
+    nodeDataStruct[nodeCount].appendChild(span);
+    dataStructZone.appendChild(nodeDataStruct[nodeCount]);
 }
 
-function handleNode(event){
-    event.preventDefault();
+function makeNodeButton(x, y){
+    nodeButton[nodeCount] = document.createElement("button");
+    nodeButton[nodeCount].innerText = nodeCount;
+    nodeButton[nodeCount].classList.add(nodeCount);
+    nodeButton[nodeCount].classList.add("btnNode");
+    nodeButton[nodeCount].onclick = handleNodeClick;
+    nodeButton[nodeCount].style.left = x + `px`;
+    nodeButton[nodeCount].style.top = y + 120 + `px`;
+
+    canvasZone.appendChild(nodeButton[nodeCount]);
+    nodeCount++;
 }
 
-function makeNode(x, y){
-    btnNode[cntNode] = document.createElement("button");
-    btnNode[cntNode].innerText = cntNode;
-    btnNode[cntNode].classList.add(cntNode);
-    btnNode[cntNode].classList.add("btnNode");
-    btnNode[cntNode].onclick = handleNode;
-    btnNode[cntNode].style.left = x + `px`;
-    btnNode[cntNode].style.top = y + 120 + `px`;
-
-    canvasZone.appendChild(btnNode[cntNode]);
-    cntNode++;
-}
-
-function handleCanvasClick(event){
+function makeNode(event){
     let x = event.offsetX;
     let y = event.offsetY;
     let w = graphCanvas.width;
     let h = graphCanvas.height;
 
-    if(x >= 20 && y >= 20 && x <= w - 20 && y <= h - 20)
-        makeNode(x, y);
+    if(x >= 25 && y >= 25 && x <= w - 20 && y <= h - 20){
+        makeNodeButton(x, y);
+        makeNodeDataStruct();
+    }
 }
-
-graphCanvas.onclick = handleCanvasClick;

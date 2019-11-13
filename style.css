@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+ul, li{
+    list-style: none;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
 header{
     width: 100%;
     padding: 20px;
