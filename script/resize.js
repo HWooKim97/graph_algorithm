@@ -1,8 +1,14 @@
 let delta = 300;
 let timer = null;
 
+const graphRadio = document.querySelector(".graphRadio");
+
 function resizeDone(){
-    setDefaultCanvas();
+    location.reload();
+    // while(canvasZone.lastChild != graphCanvas)
+    //     canvasZone.removeChild(canvasZone.lastChild);
+
+    // setDefaultCanvas();
 }
 
 window.onresize = function(){
