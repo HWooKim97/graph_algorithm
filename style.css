@@ -65,7 +65,7 @@ canvas{
     border-radius: 20px;
 }
 
-.dataStruct{
+.dataStructZone{
     width: 30%;
     padding-top: 7px;
     padding-left: 10px;
@@ -73,7 +73,7 @@ canvas{
     border-top: 0;
 }
 
-.weight{
+.weightZone{
     width: 20%;
     padding-top: 7px;
     padding-left: 10px;
