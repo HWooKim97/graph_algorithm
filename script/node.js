@@ -4,6 +4,8 @@ const node = {
     button : [],
     cnt : 0
 };
+const NEXT = 0;
+const WEIGHT = 1;
 
 function makeNodeDataStruct(){
     const li = document.createElement("li");
@@ -13,20 +15,23 @@ function makeNodeDataStruct(){
     dataStructZone.appendChild(li);
 
     node.datastruct[node.cnt] = [2];
+    node.datastruct[node.cnt][NEXT] = null;
+    node.datastruct[node.cnt][WEIGHT] = 0;
 }
 
 function makeNodeButton(x, y){
     node.button[node.cnt] = document.createElement("button");
     node.button[node.cnt].innerText = node.cnt;
+    node.button[node.cnt].value = node.cnt;
     node.button[node.cnt].classList.add("btnNode");
-    node.button[node.cnt].onclick = handleNodeClick;
     node.button[node.cnt].style.left = x + `px`;
     node.button[node.cnt].style.top = y + 120 + `px`;
+    node.button[node.cnt].onclick = handleNodeClick;
 
     canvasZone.appendChild(node.button[node.cnt]);
 }
 
-function makeNode(event){
+function handleCanvasClick(event){
     let x = event.offsetX;
     let y = event.offsetY;
     let w = graphCanvas.width;
@@ -37,4 +42,8 @@ function makeNode(event){
         makeNodeDataStruct();
         node.cnt++;
     }
+}
+
+function nodeInit(){
+    graphCanvas.onclick = handleCanvasClick;
 }

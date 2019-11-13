@@ -1,6 +1,6 @@
 function init(){
     setDefaultCanvas();
-    radioInit();
+    nodeInit();
 }
 
 init();
