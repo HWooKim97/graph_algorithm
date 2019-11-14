@@ -1,34 +1,52 @@
-const dataStructZone = document.querySelector(".dataStructZone");
-const node = {
-    datastruct : [],
-    button : [],
-    cnt : 0
-};
-const NEXT = 0;
-const WEIGHT = 1;
+const dataTable = document.querySelector(".dataTable");
+const topTr = document.querySelector("tr");
+
+let nodeCnt = 0;
+const li = [];
 
 function makeNodeDataStruct(){
-    const li = document.createElement("li");
-    const span = document.createElement("span");
-    span.innerText = node.cnt + ` - `;
-    li.appendChild(span);
-    dataStructZone.appendChild(li);
+    const tr = document.createElement("tr");
+    tr.classList.add("tr" + nodeCnt);
 
-    node.datastruct[node.cnt] = [2];
-    node.datastruct[node.cnt][NEXT] = null;
-    node.datastruct[node.cnt][WEIGHT] = 0;
+    const topTd = document.createElement("td");
+    topTd.innerText = nodeCnt;
+    topTr.appendChild(topTd);
+
+    if(nodeCnt > 0){
+        for(let i = 0; i < nodeCnt; i++){
+            const preTd = document.querySelector(".tr" + i);
+            const td = document.createElement("td");
+            td.classList.add("tr" + i + "td" + nodeCnt);
+            td.innerText = "x";
+            preTd.appendChild(td);
+        }
+    }
+
+    const leftTd = document.createElement("td");
+    leftTd.innerText = nodeCnt;
+    tr.appendChild(leftTd);
+
+    for(let i = 0; i <= nodeCnt; i++){
+        const td = document.createElement("td");
+        td.classList.add("tr" + nodeCnt + "td" + i);
+        td.innerText = "x";
+        if(i === nodeCnt) td.innerText = 0;
+        tr.appendChild(td);
+    }
+
+    dataTable.appendChild(tr);
 }
 
 function makeNodeButton(x, y){
-    node.button[node.cnt] = document.createElement("button");
-    node.button[node.cnt].innerText = node.cnt;
-    node.button[node.cnt].value = node.cnt;
-    node.button[node.cnt].classList.add("btnNode");
-    node.button[node.cnt].style.left = x + `px`;
-    node.button[node.cnt].style.top = y + 120 + `px`;
-    node.button[node.cnt].onclick = handleNodeClick;
+    const btn = document.createElement("button");
+    btn.innerText = nodeCnt;
+    btn.value = nodeCnt;
+    btn.classList.add("btnNode");
+    btn.style.left = x + `px`;
+    btn.style.top = y + 120 + `px`;
+    btn.onclick = handleNodeClick;
 
-    canvasZone.appendChild(node.button[node.cnt]);
+    canvasZone.appendChild(btn);
 }
 
 function handleCanvasClick(event){
@@ -40,7 +58,7 @@ function handleCanvasClick(event){
     if(x >= 25 && y >= 25 && x <= w - 20 && y <= h - 20){
         makeNodeButton(x, y);
         makeNodeDataStruct();
-        node.cnt++;
+        nodeCnt++;
     }
 }
 
