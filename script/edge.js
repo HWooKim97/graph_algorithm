@@ -27,6 +27,7 @@ function makeEdgeDataStruct(){
 
     const inputBox = document.createElement("input");
     inputBox.type = "number";
+    inputBox.value = 0;
     inputBox.style.width = `100%`;
     inputBox.classList.add(lowerCnt);
     inputBox.onkeypress = handleWeightInput;
