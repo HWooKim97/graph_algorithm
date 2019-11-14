@@ -79,6 +79,7 @@ canvas{
     border-left: black solid 1px;
     border-bottom: black solid 1px;
     border-top: 0;
+    overflow: auto;
 }
 
 .dataTable{
