@@ -42,7 +42,7 @@ input[type=radio]{
 }
 
 .graphZone{
-    width: 50%;
+    width: 60%;
     padding-top: 7px;
     padding-left: 10px;
     border-bottom: black 1px solid;
@@ -72,18 +72,12 @@ canvas{
 }
 
 .dataStructZone{
-    width: 30%;
+    width: 40%;
     padding-top: 7px;
     padding-left: 10px;
-    border: black solid 1px;
+    border-left: black solid 1px;
+    border-bottom: black solid 1px;
     border-top: 0;
-}
-
-.weightZone{
-    width: 20%;
-    padding-top: 7px;
-    padding-left: 10px;
-    border-bottom: black 1px solid;
 }
 
 .weightRadio{
