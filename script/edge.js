@@ -14,7 +14,7 @@ let lowerCnt = 0;
 function handleWeightInput(event){
     if(event.keyCode === 13){
         event.preventDefault();
-        lower[this.classList].innerText = this.value;
+        lower[this.classList].innerText = parseInt(this.value);
     }
 }
 
