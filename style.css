@@ -31,11 +31,6 @@ header{
     border: black 1px solid;
 }
 
-input[type=radio]{
-    margin-left: 5px;
-    margin-right: 2px;
-}
-
 .upper{
     display: flex;
     height: 65vh;
@@ -45,11 +40,6 @@ input[type=radio]{
     width: 50%;
     padding: 10px;
     border-bottom: black 1px solid;
-}
-
-.graphRadio{
-    float: right;
-    margin-right: 10px;
 }
 
 .canvasZone{
@@ -94,9 +84,8 @@ input{
     text-align: center;
 }
 
-.result{
-    padding-top: 7px;
-    padding-left: 10px;
+.startInput{
+    width: 50px;
 }
 
 
