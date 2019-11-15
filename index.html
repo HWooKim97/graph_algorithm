@@ -43,13 +43,23 @@
             </div>
         </div>
 
-        <div class="result">
-            BFS : <br> 
-            DFS : <br>
-            Process : <br>
-            MST weight : <br>
-            Shortest path : <br>
-        </div>
+        <form class="result">
+            <select class="select">
+                <option>Graph Algorithms</option>
+                <option></option>
+                <option value="1">BFS & DFS</option>
+                <optgroup label="MST">
+                    <option value="2">Kruskal</option>
+                    <option value="3">Prim</option>
+                    <option value="4">Sollin</option>
+                </optgroup>
+                <optgroup label="SP">
+                        <option value="5">Dijkstra</option>
+                        <option value="6">Floyd-Warshall</option>
+                        <option value="7">Bellman-Ford</option>
+                </optgroup>
+            </select>
+        </form>
     </div>
 
     <div>
