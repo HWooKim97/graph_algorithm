@@ -25,14 +25,14 @@ function makeEdgeDataStruct(){
     upper = document.querySelector(".tr" + sv + "td" + ev);
     lower[lowerCnt] = document.querySelector(".tr" + ev + "td" + sv);
 
-    const inputBox = document.createElement("input");
-    inputBox.type = "number";
-    inputBox.value = 0;
-    inputBox.style.width = `100%`;
-    inputBox.classList.add(lowerCnt);
-    inputBox.onkeypress = handleWeightInput;
+    const weightInput = document.createElement("input");
+    weightInput.type = "number";
+    weightInput.value = 0;
+    weightInput.style.width = `100%`;
+    weightInput.classList.add(lowerCnt);
+    weightInput.onkeypress = handleWeightInput;
     upper.innerText = ``;
-    upper.appendChild(inputBox);
+    upper.appendChild(weightInput);
     lower[lowerCnt++].innerText = 0;
 }
 
