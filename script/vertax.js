@@ -1,50 +1,50 @@
 const dataTable = document.querySelector(".dataTable");
 const topTr = document.querySelector("tr");
 
-let nodeCnt = 0;
+let vertaxCnt = 0;
 const li = [];
 
-function makeNodeDataStruct(){
+function makeVertaxDataStruct(){
     const tr = document.createElement("tr");
-    tr.classList.add("tr" + nodeCnt);
+    tr.classList.add("tr" + vertaxCnt);
 
     const topTd = document.createElement("td");
-    topTd.innerText = nodeCnt;
+    topTd.innerText = vertaxCnt;
     topTr.appendChild(topTd);
 
-    if(nodeCnt > 0){
-        for(let i = 0; i < nodeCnt; i++){
+    if(vertaxCnt > 0){
+        for(let i = 0; i < vertaxCnt; i++){
             const preTd = document.querySelector(".tr" + i);
             const td = document.createElement("td");
-            td.classList.add("tr" + i + "td" + nodeCnt);
+            td.classList.add("tr" + i + "td" + vertaxCnt);
             td.innerText = "x";
             preTd.appendChild(td);
         }
     }
 
     const leftTd = document.createElement("td");
-    leftTd.innerText = nodeCnt;
+    leftTd.innerText = vertaxCnt;
     tr.appendChild(leftTd);
 
-    for(let i = 0; i <= nodeCnt; i++){
+    for(let i = 0; i <= vertaxCnt; i++){
         const td = document.createElement("td");
-        td.classList.add("tr" + nodeCnt + "td" + i);
+        td.classList.add("tr" + vertaxCnt + "td" + i);
         td.innerText = "x";
-        if(i === nodeCnt) td.innerText = 0;
+        if(i === vertaxCnt) td.innerText = 0;
         tr.appendChild(td);
     }
 
     dataTable.appendChild(tr);
 }
 
-function makeNodeButton(x, y){
+function makeVertaxButton(x, y){
     const btn = document.createElement("button");
-    btn.innerText = nodeCnt;
-    btn.value = nodeCnt;
-    btn.classList.add("btnNode");
+    btn.innerText = vertaxCnt;
+    btn.value = vertaxCnt;
+    btn.classList.add("btnVertax");
     btn.style.left = x + `px`;
     btn.style.top = y + 120 + `px`;
-    btn.onclick = handleNodeClick;
+    btn.onclick = handleVertaxClick;
 
     canvasZone.appendChild(btn);
 }
@@ -56,12 +56,12 @@ function handleCanvasClick(event){
     let h = graphCanvas.height;
 
     if(x >= 25 && y >= 25 && x <= w - 20 && y <= h - 20){
-        makeNodeButton(x, y);
-        makeNodeDataStruct();
-        nodeCnt++;
+        makeVertaxButton(x, y);
+        makeVertaxDataStruct();
+        vertaxCnt++;
     }
 }
 
-function nodeInit(){
+function vertaxInit(){
     graphCanvas.onclick = handleCanvasClick;
 }

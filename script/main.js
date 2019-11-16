@@ -1,6 +1,7 @@
 function init(){
     setDefaultCanvas();
-    nodeInit();
+    // radioInit();
+    vertaxInit();
     selectInit();
 }
 

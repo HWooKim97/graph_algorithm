@@ -56,23 +56,31 @@ function checkEdge(s, e){
     return true;
 }
 
-function handleNodeClick(event){
-    event.preventDefault();
-    if(checkClick === false){
-        start = this;
-        checkClick = true;
-    }
-    else if(this !== start){
-        end = this;
-        if(start.value > end.value) [start, end] = [end, start];
+function deleteVertax(btn){
+    console.log(btn);
+}
 
-        if(checkEdge(start, end)){
-            edge.start[edge.cnt] = start;
-            edge.end[edge.cnt] = end;
-            drawEdge();
-            makeEdgeDataStruct();
-            edge.cnt++;
-            checkClick = false;
+function handleVertaxClick(event){
+    event.preventDefault();
+    // if(vertaxCreate === false){
+    //     deleteVertax(this);
+    // }
+    // else if(edgeCreate === true){
+        if(checkClick === false){
+            start = this;
+            checkClick = true;
         }
-    }
+        else if(this !== start){
+            end = this;
+            if(start.value > end.value) [start, end] = [end, start];
+
+            if(checkEdge(start, end)){
+                edge.start[edge.cnt] = start;
+                edge.end[edge.cnt] = end;
+                drawEdge();
+                makeEdgeDataStruct();
+                edge.cnt++;
+                checkClick = false;
+            }
+        }
 }
