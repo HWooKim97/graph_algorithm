@@ -35,4 +35,8 @@ function mstInit(n){
     if(n == 1) kruskalInit();
     else if(n == 2) primInit();
     else if(n == 3) sollinInit();
+
+    const div = document.createElement("div");
+    div.innerText = "Sum of Weight : " + weightSum;
+    weightResult.appendChild(div);
 }

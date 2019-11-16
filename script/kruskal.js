@@ -38,17 +38,16 @@ function kruskal(weight){
 
 function kruskalInit(){
     const weight = [];
-    let weightCnt = 0;
     
     for(let r = 0; r < vertexCnt; r++){
         for(let c = 0; c < r; c++){
             const w = document.querySelector(".tr" + r + "td" + c).innerText;
             if(w != `o` && w != `x`){
-                weight[weightCnt++] = {
+                weight.push({
                     w : parseInt(w),
                     s : r,
                     e : c
-                }
+                });
             }
         }
     }
@@ -58,8 +57,4 @@ function kruskalInit(){
     });
 
     kruskal(weight);
-
-    const div = document.createElement("div");
-    div.innerText = "Sum of Weight : " + weightSum;
-    weightResult.appendChild(div);
 }
