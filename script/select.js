@@ -20,8 +20,8 @@ function handleRightStartInput(event){
         const startVertex = parseInt(this.value);
 
         if(startVertex >= 0 && startVertex < vertexCnt){
-            if(selction > 1 && selction < 4) mstInit(selection, startVertex);
-            else spInit(selction, startVertex);
+            if(selection > 1 && selection < 4) mstInit(selection, startVertex);
+            else spInit(selection, startVertex);
         }
         else window.alert("Start Vertex Number Error!");
     }
