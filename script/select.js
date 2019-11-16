@@ -10,7 +10,7 @@ let selection = 0;
 
 function handleStartBtn(event){
     event.preventDefault();
-    if(selection != 6) mstInit(selection);
+    if(selection == 1) mstInit(selection);
     else floydInit();
 }
 
@@ -19,8 +19,10 @@ function handleRightStartInput(event){
         event.preventDefault();
         const startVertex = parseInt(this.value);
 
-        if(startVertex >= 0 && startVertex < vertexCnt)
-            spInit(selction, startVertex);
+        if(startVertex >= 0 && startVertex < vertexCnt){
+            if(selction > 1 && selction < 4) mstInit(selection, startVertex);
+            else spInit(selction, startVertex);
+        }
         else window.alert("Start Vertex Number Error!");
     }
 }

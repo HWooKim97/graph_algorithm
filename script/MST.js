@@ -21,20 +21,20 @@ function mstPrint(edge) {
     weightResult.appendChild(div);
 }
 
-function mstInit(n){
+function mstInit(n, s){
     graphCTX.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
     while(weightResult.lastChild != null)
         weightResult.removeChild(weightResult.lastChild);
     
-    seenVertex = [];
+    visitedVertex = [];
     cycleGroup = [];
     cycleGroup[0] = [];
     cycleCnt = 0;
     weightSum = 0;
 
     if(n == 1) kruskalInit();
-    else if(n == 2) primInit();
-    else if(n == 3) sollinInit();
+    else if(n == 2) primInit(s);
+    else if(n == 3) sollinInit(s);
 
     const div = document.createElement("div");
     div.innerText = "Sum of Weight : " + weightSum;

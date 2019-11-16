@@ -9,7 +9,7 @@ function dfsPrint(v){
 
 function dfs(s){
     dfsArr.push(s);
-    seenVertex.push(s);
+    visitedVertex.push(s);
 
     for(let i = 0; i < vertexCnt; i++){
         const v = document.querySelector(".tr" + s + "td" + i).innerText;
@@ -27,7 +27,7 @@ function dfsInit(start){
     const span = document.createElement("span");
     span.innerText = "Start - ";
     dfsResult.appendChild(span);
-    seenVertex = [];
+    visitedVertex = [];
     dfs(start);
 
     const end = document.createElement("span");

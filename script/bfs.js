@@ -9,7 +9,7 @@ function bfsPrint(v){
 
 function bfs(s){
     bfsArr.push(s);
-    seenVertex.push(s);
+    visitedVertex.push(s);
 
     while(bfsArr.length > 0){
         s = bfsArr.shift();
@@ -19,7 +19,7 @@ function bfs(s){
             if(v != `o` && v != `x`){
                 if(checkVertex(i)){
                     bfsArr.push(i);
-                    seenVertex.push(i);
+                    visitedVertex.push(i);
                 }
             }
         }
@@ -33,7 +33,7 @@ function bfsInit(start){
     const span = document.createElement("span");
     span.innerText = "Start - ";
     bfsResult.appendChild(span);
-    seenVertex = [];
+    visitedVertex = [];
     bfs(start);
     
     const end = document.createElement("span");
