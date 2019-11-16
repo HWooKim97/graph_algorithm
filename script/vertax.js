@@ -30,7 +30,7 @@ function makeVertaxDataStruct(){
         const td = document.createElement("td");
         td.classList.add("tr" + vertaxCnt + "td" + i);
         td.innerText = "x";
-        if(i === vertaxCnt) td.innerText = 0;
+        if(i === vertaxCnt) td.innerText = "o";
         tr.appendChild(td);
     }
 
