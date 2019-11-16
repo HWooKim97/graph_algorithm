@@ -1,9 +1,9 @@
-const nodeCreateRadio = document.querySelector(".nodeCreateRadio");
-const nodeDeleteRadio = document.querySelector(".nodeDeleteRadio");
+const vertaxCreateRadio = document.querySelector(".vertaxCreateRadio");
+const vertaxDeleteRadio = document.querySelector(".vertaxDeleteRadio");
 const edgeCreateRadio = document.querySelector(".edgeCreateRadio");
 const edgeDeleteRadio = document.querySelector(".edgeDeleteRadio");
 
-let nodeCreate = true;
+let vertaxCreate = true;
 let edgeCreate = true;
 
 function handleEdgeRadio(event){
@@ -11,14 +11,14 @@ function handleEdgeRadio(event){
     else if(this.value == 2) edgeCreate = false;
 }
 
-function handleNodeRadio(event){
-    if(this.value == 1) nodeCreate = true;
-    else if(this.value == 2) nodeCreate = false;
+function handleVertaxRadio(event){
+    if(this.value == 1) vertaxCreate = true;
+    else if(this.value == 2) vertaxCreate = false;
 }
 
 function radioInit(){
-    nodeCreateRadio.onclick = handleNodeRadio;
-    nodeDeleteRadio.onclick = handleNodeRadio;
+    vertaxCreateRadio.onclick = handleVertaxRadio;
+    vertaxDeleteRadio.onclick = handleVertaxRadio;
     edgeCreateRadio.onclick = handleEdgeRadio;
     edgeDeleteRadio.onclick = handleEdgeRadio;
 }
