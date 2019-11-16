@@ -22,7 +22,6 @@ function kruskal(weight){
                 cycleGroup[checkGroup(edge.e)].push(edge.s);
             }
             else if(!checkVertex(edge.s) && !checkVertex(edge.e)){ //둘 다 이미 있지만 그룹이 다른 경우
-                console.log("do concat")
                 concatGroup(edge);
             }
             else{
