@@ -9,12 +9,12 @@ function dfsPrint(v){
 
 function dfs(s){
     dfsArr.push(s);
-    seenVertax.push(s);
+    seenVertex.push(s);
 
-    for(let i = 0; i < vertaxCnt; i++){
+    for(let i = 0; i < vertexCnt; i++){
         const v = document.querySelector(".tr" + s + "td" + i).innerText;
         if(v != `o` && v != `x`){
-            if(checkVertax(i)) dfs(i);
+            if(checkVertex(i)) dfs(i);
         }
     }
     dfsPrint(dfsArr.shift());
@@ -27,7 +27,7 @@ function dfsInit(start){
     const span = document.createElement("span");
     span.innerText = "Start - ";
     dfsResult.appendChild(span);
-    seenVertax = [];
+    seenVertex = [];
     dfs(start);
 
     const end = document.createElement("span");

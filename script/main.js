@@ -1,7 +1,7 @@
 function init(){
     setDefaultCanvas();
     // radioInit();
-    vertaxInit();
+    vertexInit();
     selectInit();
 }
 

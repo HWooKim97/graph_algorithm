@@ -12,16 +12,16 @@ const ALGORITHMS = [
 function handleStartInput(event){
     if(event.keyCode === 13){
         event.preventDefault();
-        const startVertax = parseInt(this.value);
+        const startVertex = parseInt(this.value);
 
-        if(startVertax >= 0 && startVertax < vertaxCnt){
-            bfsInit(startVertax);
-            dfsInit(startVertax);
+        if(startVertex >= 0 && startVertex < vertexCnt){
+            bfsInit(startVertex);
+            dfsInit(startVertex);
             if(selection > 0 && selection < 6)
-                ALGORITHMS[selection](startVertax);
+                ALGORITHMS[selection](startVertex);
             else if(selection == 6) ALGORITHMS[selection]();
         }
-        else window.alert("Start Vertax Number Error!");
+        else window.alert("Start Vertex Number Error!");
     }
 }
 

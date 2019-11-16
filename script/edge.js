@@ -56,14 +56,14 @@ function checkEdge(s, e){
     return true;
 }
 
-function deleteVertax(btn){
+function deleteVertex(btn){
     console.log(btn);
 }
 
-function handleVertaxClick(event){
+function handleVertexClick(event){
     event.preventDefault();
-    // if(vertaxCreate === false){
-    //     deleteVertax(this);
+    // if(vertexCreate === false){
+    //     deleteVertex(this);
     // }
     // else if(edgeCreate === true){
         if(checkClick === false){

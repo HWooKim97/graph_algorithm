@@ -9,17 +9,17 @@ function bfsPrint(v){
 
 function bfs(s){
     bfsArr.push(s);
-    seenVertax.push(s);
+    seenVertex.push(s);
 
     while(bfsArr.length > 0){
         s = bfsArr.shift();
         bfsPrint(s);
-        for(let i = 0; i < vertaxCnt; i++){
+        for(let i = 0; i < vertexCnt; i++){
             const v = document.querySelector(".tr" + s + "td" + i).innerText;
             if(v != `o` && v != `x`){
-                if(checkVertax(i)){
+                if(checkVertex(i)){
                     bfsArr.push(i);
-                    seenVertax.push(i);
+                    seenVertex.push(i);
                 }
             }
         }
@@ -33,7 +33,7 @@ function bfsInit(start){
     const span = document.createElement("span");
     span.innerText = "Start - ";
     bfsResult.appendChild(span);
-    seenVertax = [];
+    seenVertex = [];
     bfs(start);
     
     const end = document.createElement("span");

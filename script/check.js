@@ -1,9 +1,9 @@
-let seenVertax = [];
+let seenVertex = [];
 let seenEdge = [];
 
-function checkVertax(v) {
-    for(let i = 0; i < seenVertax.length; i++){
-        if(seenVertax[i] == v) return false;
+function checkVertex(v) {
+    for(let i = 0; i < seenVertex.length; i++){
+        if(seenVertex[i] == v) return false;
     }
     return true;
 }
