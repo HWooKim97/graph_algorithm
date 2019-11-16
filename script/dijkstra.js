@@ -1,0 +1,7 @@
+function djikstra() {
+    
+}
+
+function djikstraInit() {
+    
+}

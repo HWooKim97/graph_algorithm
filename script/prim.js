@@ -1,0 +1,7 @@
+function prim(){
+
+}
+
+function primInit(){
+    
+}

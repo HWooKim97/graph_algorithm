@@ -2,6 +2,12 @@ const select = document.querySelector(".select");
 const weightResult = document.querySelector(".weightResult");
 const startInput = document.querySelector(".startInput");
 
+let selection = 0;
+const ALGORITHMS = [
+    kruskalInit, primInit, sollinInit,
+    djikstraInit, bellmanInit, floydInit
+]
+
 
 function handleStartInput(event){
     if(event.keyCode === 13){
@@ -11,6 +17,9 @@ function handleStartInput(event){
         if(startVertax >= 0 && startVertax < vertaxCnt){
             bfsInit(startVertax);
             dfsInit(startVertax);
+            if(selection > 0 && selection < 6)
+                ALGORITHMS[selection](startVertax);
+            else if(selection == 6) ALGORITHMS[selection]();
         }
         else window.alert("Start Vertax Number Error!");
     }
@@ -19,21 +28,18 @@ function handleStartInput(event){
 function handleSelectChange(){
     let selectValue = select.options[select.selectedIndex].value;
 
-    if(selectValue == 1){
-    }
-    else if(selectValue == 2){
-    }
-    else if(selectValue == 3){
-    }
-    else if(selectValue == 4){
-    }
-    else if(selectValue == 5){
-    }
-    else if(selectValue == 6){
-    }
-    else if(selectValue == 7){
-    }
+    weightResult.classList.remove("hiding");
+    weightResult.classList.add("showing");
+
+    if(selectValue == 1) selection = 1;
+    else if(selectValue == 2) selection = 2;
+    else if(selectValue == 3) selection = 3;
+    else if(selectValue == 4) selection = 4;
+    else if(selectValue == 5) selection = 5;
+    else if(selectValue == 6) selection = 6;
     else{
+        weightResult.classList.remove("showing");
+        weightResult.classList.add("hiding");
     }
 }
 
