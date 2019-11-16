@@ -7,13 +7,11 @@ const inputDiv = document.querySelector(".inputDiv");
 const btnDiv = document.querySelector(".btnDiv");
 
 let selection = 0;
-const ALGORITHMS = [ null,
-    kruskalInit, primInit, sollinInit,
-    djikstraInit, bellmanInit, floydInit
-]
 
 function handleStartBtn(event){
-
+    event.preventDefault();
+    if(selection != 6) mstInit(selection);
+    else floydInit();
 }
 
 function handleRightStartInput(event){
@@ -21,11 +19,8 @@ function handleRightStartInput(event){
         event.preventDefault();
         const startVertex = parseInt(this.value);
 
-        if(startVertex >= 0 && startVertex < vertexCnt){
-            if(selection > 0 && selection < 6)
-                ALGORITHMS[selection](startVertex);
-            else if(selection == 6) ALGORITHMS[selection]();
-        }
+        if(startVertex >= 0 && startVertex < vertexCnt)
+            spInit(selction, startVertex);
         else window.alert("Start Vertex Number Error!");
     }
 }
@@ -44,31 +39,31 @@ function handleLeftStartInput(event){
 }
 
 function handleSelectChange(){
-    let selectValue = select.options[select.selectedIndex].value;
+    selection = select.options[select.selectedIndex].value;
 
     weightResult.classList.remove("hiding");
     weightResult.classList.add("showing");
-    inputDiv.classList.remove("hiding");
-    inputDiv.classList.add("showing");
-    btnDiv.classList.remove("showing");
-    btnDiv.classList.add("hiding");
-
-    if(selectValue == 1) selection = 1;
-    else if(selectValue == 2) selection = 2;
-    else if(selectValue == 3) selection = 3;
-    else if(selectValue == 4) selection = 4;
-    else if(selectValue == 5) selection = 5;
-    else if(selectValue == 6){
+    
+    if(selection == 1 || selection == 6){
         inputDiv.classList.remove("showing");
         inputDiv.classList.add("hiding");
         btnDiv.classList.remove("hiding");
         btnDiv.classList.add("showing");
-        selection = 6;
+    }
+    else if(selection > 1 && selection < 6){
+        btnDiv.classList.remove("showing");
+        btnDiv.classList.add("hiding");    
+        inputDiv.classList.remove("hiding");
+        inputDiv.classList.add("showing");
     }
     else{
         selection = 0;
         weightResult.classList.remove("showing");
         weightResult.classList.add("hiding");
+        inputDiv.classList.remove("showing");
+        inputDiv.classList.add("hiding");
+        btnDiv.classList.remove("showing");
+        btnDiv.classList.add("hiding");    
     }
 }
 
