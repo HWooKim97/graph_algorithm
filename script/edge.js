@@ -10,12 +10,10 @@ let checkClick = false;
 let start, end;
 let upper, lower = [];
 let lowerCnt = 0;
-let negative = false;
 
 function handleWeightInput(event){
     if(event.keyCode === 13){
         event.preventDefault();
-        if(paresInt(this.value) < 0) negative = true;
         lower[this.classList].innerText = parseInt(this.value);
     }
 }
