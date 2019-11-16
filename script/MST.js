@@ -21,6 +21,33 @@ function mstPrint(edge) {
     weightResult.appendChild(div);
 }
 
+function mstAddEdge(edge){
+    if(checkCycle(edge) === true){
+        mstPrint(edge);
+        drawAgain(edge);
+        weightSum += edge.w;
+
+        if(!checkVertex(edge.s) && checkVertex(edge.e)){ //s가 이미 있는 경우
+            visitedVertex.push(edge.e);
+            cycleGroup[checkGroup(edge.s)].push(edge.e);
+        }
+        else if(checkVertex(edge.s) && !checkVertex(edge.e)){ //e가 이미 있는 경우
+            visitedVertex.push(edge.s);
+            cycleGroup[checkGroup(edge.e)].push(edge.s);
+        }
+        else if(!checkVertex(edge.s) && !checkVertex(edge.e)){ //둘 다 이미 있지만 그룹이 다른 경우
+            concatGroup(edge);
+        }
+        else{
+            visitedVertex.push(edge.s);
+            visitedVertex.push(edge.e);
+            cycleGroup[cycleCnt].push(edge.s);
+            cycleGroup[cycleCnt++].push(edge.e);
+            cycleGroup[cycleCnt] = [];
+        }
+    }
+}
+
 function mstInit(n, s){
     graphCTX.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
     while(weightResult.lastChild != null)
