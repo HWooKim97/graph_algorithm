@@ -50,25 +50,32 @@
                 </form>
             </div>
         </div>
-
-        <form style="padding: 10px;">
-            <select class="select">
-                <option>Graph Algorithms</option>
-                <optgroup label="MST">
-                    <option value="1">Kruskal</option>
-                    <option value="2">Prim</option>
-                    <option value="3">Sollin</option>
-                </optgroup>
-                <optgroup label="SP">
-                        <option value="4">Dijkstra</option>
-                        <option value="5">Bellman-Ford</option>
-                        <option value="6">Floyd-Warshall</option>
-                </optgroup>
-            </select><br>
-            Start Vertax : <input type="number" class="startInput"> Press Enter!
-            <div class="bfsResult">BFS : </div>
-            <div class="dfsResult">DFS : </div>
-            <div class="weightResult hiding">
+        
+        <form class="result">
+            <div class="leftResult">
+                Start Vertax : <input type="number" class="startInput">
+                <span style="font-size: 14px;">Press Enter!</span>
+                <br><br>BFS :
+                <div class="bfsResult"></div>
+                <br>DFS : 
+                <div class="dfsResult"></div>
+            </div>
+            <div class="rightResult">
+                    <select class="select" style="margin-bottom: 5px;">
+                        <option>Graph Algorithms</option>
+                        <optgroup label="MST">
+                            <option value="1">Kruskal</option>
+                            <option value="2">Prim</option>
+                            <option value="3">Sollin</option>
+                        </optgroup>
+                        <optgroup label="SP">
+                            <option value="4">Dijkstra</option>
+                            <option value="5">Bellman-Ford</option>
+                            <option value="6">Floyd-Warshall</option>
+                        </optgroup>
+                    </select><br>
+                <div class="weightResult hiding">
+                </div>
             </div>
         </form>
     </div>

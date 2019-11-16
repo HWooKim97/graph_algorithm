@@ -84,10 +84,25 @@ input{
     text-align: center;
 }
 
+.result{
+    display: flex;
+    height: 20vh;
+}
+
+.leftResult{
+    padding: 10px;
+    width: 50%;
+    overflow: auto;
+}
+
 .startInput{
     width: 50px;
 }
 
+.rightResult{
+    padding: 10px;
+    border-left: 1px dotted black;
+}
 
 .hiding{
     display: none;
