@@ -48,7 +48,7 @@ function drawEdge(){
     graphCTX.stroke();
 }
 
-function checkEdge(s, e){
+function checkMakeEdge(s, e){
     for(let i = 0; i < edge.cnt; i++){
         if(s === edge.start[i] && e === edge.end[i])
             return false;
@@ -74,7 +74,7 @@ function handleVertexClick(event){
             end = this;
             if(start.value > end.value) [start, end] = [end, start];
 
-            if(checkEdge(start, end)){
+            if(checkMakeEdge(start, end)){
                 edge.start[edge.cnt] = start;
                 edge.end[edge.cnt] = end;
                 drawEdge();
