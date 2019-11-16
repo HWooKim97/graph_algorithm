@@ -25,9 +25,8 @@ function dfsInit(start){
         dfsResult.removeChild(dfsResult.lastChild);
 
     const span = document.createElement("span");
-    span.innerText = "DFS : ";
+    span.innerText = "Start - ";
     dfsResult.appendChild(span);
-
     seenVertax = [];
     dfs(start);
 

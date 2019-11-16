@@ -31,9 +31,8 @@ function bfsInit(start){
         bfsResult.removeChild(bfsResult.lastChild);
 
     const span = document.createElement("span");
-    span.innerText = "BFS : ";
+    span.innerText = "Start - ";
     bfsResult.appendChild(span);
-
     seenVertax = [];
     bfs(start);
     
