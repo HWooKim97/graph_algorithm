@@ -95,13 +95,21 @@ input{
     overflow: auto;
 }
 
-.startInput{
+.leftStartInput, .rightStartInput{
     width: 50px;
+    margin-bottom: 5px;
 }
 
 .rightResult{
+    width: 50%;
     padding: 10px;
     border-left: 1px dotted black;
+}
+
+select{
+    float: right;
+    margin-top: 4px;
+    margin-bottom: 5px;
 }
 
 .hiding{

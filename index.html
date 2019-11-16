@@ -20,6 +20,7 @@
             <form class="graphZone">
                 <div style="margin-bottom: 10px;">
                     Graph Zone
+                    <button style="float: right;">Reset</button>
                     <!-- <span style="float: right;">
                         vertex
                         <input type="radio" class="vertexCreateRadio" name="vertex" value="1" checked> Create
@@ -53,35 +54,42 @@
         
         <form class="result">
             <div class="leftResult">
-                Start Vertex : <input type="number" class="startInput">
+                Start Vertex : <input type="number" class="leftStartInput">
                 <span style="font-size: 14px;">Press Enter!</span>
-                <br><br>BFS :
+                <br>BFS :
                 <div class="bfsResult"></div>
                 <br>DFS : 
                 <div class="dfsResult"></div>
             </div>
             <div class="rightResult">
-                    <select class="select" style="margin-bottom: 5px;">
-                        <option>Graph Algorithms</option>
-                        <optgroup label="MST">
-                            <option value="1">Kruskal</option>
-                            <option value="2">Prim</option>
-                            <option value="3">Sollin</option>
-                        </optgroup>
-                        <optgroup label="SP">
-                            <option value="4">Dijkstra</option>
-                            <option value="5">Bellman-Ford</option>
-                            <option value="6">Floyd-Warshall</option>
-                        </optgroup>
-                    </select><br>
+                <select class="select">
+                    <option>Graph Algorithms</option>
+                    <optgroup label="MST">
+                        <option value="1">Kruskal</option>
+                        <option value="2">Prim</option>
+                        <option value="3">Sollin</option>
+                    </optgroup>
+                    <optgroup label="SP">
+                        <option value="4">Dijkstra</option>
+                        <option value="5">Bellman-Ford</option>
+                        <option value="6">Floyd-Warshall</option>
+                    </optgroup>
+                </select>
                 <div class="weightResult hiding">
+                    <div class="inputDiv hiding">
+                        Start Vertex : <input type="number" class="rightStartInput">
+                        <span style="font-size: 14px;">Press Enter!</span>
+                    </div>
+                    <div class="btnDiv hiding">
+                        <button class="startBtn">Go!</button>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
 
     <div>
-        <!-- <script src="script/radio.js"></!--> -->
+        <!-- <script src="script/radio.js"></!-->
         <script src="script/canvas.js"></script>
         <script src="script/vertex.js"></script>
         <script src="script/edge.js"></script>
