@@ -42,6 +42,7 @@ function makeVertexButton(x, y){
     btn.innerText = vertexCnt;
     btn.value = vertexCnt;
     btn.classList.add("btnVertex");
+    btn.classList.add("vertex" + vertexCnt);
     btn.style.left = x + `px`;
     btn.style.top = y + 120 + `px`;
     btn.onclick = handleVertexClick;
