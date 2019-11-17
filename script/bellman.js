@@ -5,7 +5,7 @@ function bellmanInit(s) {
             const w = document.querySelector(".tr" + r + "td" + c).innerText;
             if(w != `o` && w != `x`){
                 if(parseInt(w) < 0){
-                    window.alert("There's negativ cycle!\nI can't be sure of this result...");
+                    window.alert("There's negative cycle!\nI can't be sure of this result...");
                     neg = true;
                     break;
                 }
