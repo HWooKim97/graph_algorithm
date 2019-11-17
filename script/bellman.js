@@ -1,5 +1,3 @@
-let bellmanWeight = [];
-
 function bellmanInit(s) {
     let neg = false;
     for(let r = 0; r < vertexCnt; r++){
@@ -16,9 +14,9 @@ function bellmanInit(s) {
         if(neg === true) break;
     }
 
+    let bellmanWeight = [];
     let start = s;
-    
-    bellmanWeight = [];
+
     for(let i = 0; i < vertexCnt; i++){
         bellmanWeight[i] = Number.MAX_VALUE;
     }
@@ -48,7 +46,6 @@ function bellmanInit(s) {
         }
         s = findMinWeight(bellmanWeight);
         if(bellmanWeight[s] === Number.MAX_VALUE) break;
-        if(checkVertex(s)) visitedVertex.push(s);
     }
     
     bellmanWeight[s] = 0;

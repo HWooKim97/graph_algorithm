@@ -1,5 +1,3 @@
-let djikstraWeight = [];
-
 function djikstraInit(s) {
     for(let r = 0; r < vertexCnt; r++){
         for(let c = 0; c < r; c++){
@@ -12,9 +10,8 @@ function djikstraInit(s) {
         }
     }
     
+    let djikstraWeight = [];
     let start = s;
-
-    djikstraWeight = [];
     visitedVertex.push(s);
 
     for(let i = 0; i < vertexCnt; i++){
