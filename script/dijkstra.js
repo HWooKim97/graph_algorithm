@@ -1,15 +1,5 @@
 let djikstraWeight = [];
 
-function findMinWeight(arr){
-    let min = 0;
-    for(let i = 1; i < arr.length; i++){
-        if(!checkVertex(i)) continue;
-        if(arr[min] > arr[i]) min = i;
-    }
-
-    return min;
-}
-
 function djikstraInit(s) {
     for(let r = 0; r < vertexCnt; r++){
         for(let c = 0; c < r; c++){
@@ -31,7 +21,7 @@ function djikstraInit(s) {
         djikstraWeight[i] = Number.MAX_VALUE;
     }
 
-    while(visitedVertex.length !== vertexCnt){
+    for(let i = 0; i < vertexCnt - 1; i++){
         for(let c = 0; c < s; c++){
             const w = document.querySelector(".tr" + s + "td" + c).innerText;
             if(w != `o` && w != `x` && checkVertex(c)){
@@ -55,6 +45,7 @@ function djikstraInit(s) {
             }
         }
         s = findMinWeight(djikstraWeight);
+        if(djikstraWeight[s] === Number.MAX_VALUE) break;
         visitedVertex.push(s);
     }
 
