@@ -1,4 +1,5 @@
 let weightSum;
+let mstCnt = 0;
 
 function drawAgain(edge) {
     const sBtn = document.querySelector(".vertex" + edge.s);
@@ -22,7 +23,9 @@ function mstPrint(edge) {
 }
 
 function mstAddEdge(edge){
-    if(checkCycle(edge) === true){
+    if(mstCnt === vertexCnt - 1) return;
+    if(checkCycle(edge)){
+        mstCnt++;
         mstPrint(edge);
         drawAgain(edge);
         weightSum += edge.w;
@@ -58,6 +61,7 @@ function mstInit(n, s){
     cycleGroup[0] = [];
     cycleCnt = 0;
     weightSum = 0;
+    mstCnt = 0;
 
     if(n == 1) kruskalInit();
     else if(n == 2) primInit(s);
