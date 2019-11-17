@@ -1,3 +1,13 @@
+function findMinWeight(arr){
+    let min = 0;
+    for(let i = 1; i < arr.length; i++){
+        if(!checkVertex(i)) continue;
+        if(arr[min] > arr[i]) min = i;
+    }
+
+    return min;
+}
+
 function spPrint(s, weightArr) {
     for(let e = 0; e < weightArr.length; e++){
         const div = document.createElement("div");
@@ -7,6 +17,9 @@ function spPrint(s, weightArr) {
 }
 
 function spInit(n, s) {
+    while(weightResult.lastChild != null)
+        weightResult.removeChild(weightResult.lastChild);
+    
     visitedVertex = [];
     visitedEdge = [];
     cycleGroup = [];
