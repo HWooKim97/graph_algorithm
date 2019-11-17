@@ -1,5 +1,5 @@
 let primTreeVertex = [];
-let primSeenWeight = [];
+let primSeenEdge = [];
 
 function primCheck(v){
     for(let i = 0; i < primTreeVertex.length; i++){
@@ -10,7 +10,7 @@ function primCheck(v){
 
 function primInit(s){
     primTreeVertex = [];
-    primSeenWeight = [];
+    primSeenEdge = [];
 
     do{
         if(mstCnt === vertexCnt - 1) return;
@@ -18,7 +18,7 @@ function primInit(s){
             if(!primCheck(c)) continue;
             const w = document.querySelector(".tr" + s + "td" + c).innerText;
             if(w != `o` && w != `x`){
-                primSeenWeight.push({
+                primSeenEdge.push({
                     w : parseInt(w),
                     s : s,
                     e : c
@@ -29,18 +29,16 @@ function primInit(s){
             if(!primCheck(r)) continue;
             const w = document.querySelector(".tr" + r + "td" + s).innerText;
             if(w != `o` && w != `x`){
-                primSeenWeight.push({
+                primSeenEdge.push({
                     w : parseInt(w),
                     s : s,
                     e : r
                 });
             }
         }
-        primSeenWeight.sort(function(a, b) {
-            return a.w - b.w;
-        });
+        primSeenEdge.sort((a, b) => a.w - b.w);
         primTreeVertex.push(s);
-        s = primSeenWeight[0].e;
-        mstAddEdge(primSeenWeight.shift());
-    }while(primSeenWeight.length > 0) 
+        s = primSeenEdge[0].e;
+        mstAddEdge(primSeenEdge.shift());
+    }while(primSeenEdge.length > 0) 
 }

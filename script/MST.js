@@ -57,6 +57,7 @@ function mstInit(n, s){
         weightResult.removeChild(weightResult.lastChild);
     
     visitedVertex = [];
+    visitedEdge = [];
     cycleGroup = [];
     cycleGroup[0] = [];
     cycleCnt = 0;

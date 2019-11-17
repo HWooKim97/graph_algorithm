@@ -1,11 +1,11 @@
 function kruskalInit(){
-    const weight = [];
+    const kruskalEdge = [];
     
     for(let r = 0; r < vertexCnt; r++){
         for(let c = 0; c < r; c++){
             const w = document.querySelector(".tr" + r + "td" + c).innerText;
             if(w != `o` && w != `x`){
-                weight.push({
+                kruskalEdge.push({
                     w : parseInt(w),
                     s : r,
                     e : c
@@ -13,10 +13,10 @@ function kruskalInit(){
             }
         }
     }
-    weight.sort((a, b) => a.w - b.w);
+    kruskalEdge.sort((a, b) => a.w - b.w);
 
-    while(weight.length > 0){
+    while(kruskalEdge.length > 0){
         if(mstCnt === vertexCnt - 1) return;
-        mstAddEdge(weight.shift());
+        mstAddEdge(kruskalEdge.shift());
     }
 }

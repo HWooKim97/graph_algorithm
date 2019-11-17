@@ -1,49 +1,39 @@
-let sollinWeight = [];
-let selectedWeight = [];
+let sollinEdge = [];
 
 function sollinConcat(t, s){
-    for(let i = 0; i < sollinWeight[t].length; i++){
-        if(sollinCheck(sollinWeight[t][i]) !== true){
-            sollinWeight[t].splice(i, 1);
+    for(let i = 0; i < sollinEdge[t].length; i++){
+        if(checkEdge(sollinEdge[t][i]) !== true){
+            sollinEdge[t].splice(i, 1);
         }
     }
-    for(let i = 0; i < sollinWeight[s].length; i++){
-        if(sollinCheck(sollinWeight[s][i]) !== true){
-            sollinWeight[s].splice(i, 1);
+    for(let i = 0; i < sollinEdge[s].length; i++){
+        if(checkEdge(sollinEdge[s][i]) !== true){
+            sollinEdge[s].splice(i, 1);
         }
     }
-    for(let i = 0; i < sollinWeight[t].length; i++){
-        for(let j = 0; j < sollinWeight[s].length; j++){
-            if(sollinWeight[t][i] === sollinWeight[s][j]){
-                sollinWeight[s].splice(j, 1);
+    for(let i = 0; i < sollinEdge[t].length; i++){
+        for(let j = 0; j < sollinEdge[s].length; j++){
+            if(sollinEdge[t][i] === sollinEdge[s][j]){
+                sollinEdge[s].splice(j, 1);
             }
         }
     }
 
-    sollinWeight[t] = sollinWeight[t].concat(sollinWeight[s]);
-    sollinWeight.splice(s, 1);
+    sollinEdge[t] = sollinEdge[t].concat(sollinEdge[s]);
+    sollinEdge.splice(s, 1);
 
-    sollinWeight[t].sort((a, b) => a.w - b.w);
-}
-
-function sollinCheck(edge){
-    for(let i = 0; i < selectedWeight.length; i++){
-        if(selectedWeight[i].s == edge.s && selectedWeight[i].e == edge.e)
-            return i;
-    }
-    return true;
+    sollinEdge[t].sort((a, b) => a.w - b.w);
 }
 
 function sollinInit(){
-    sollinWeight = [];
-    selectedWeight = [];
+    sollinEdge = [];
 
     for(let s = 0; s < vertexCnt; s++){
-        sollinWeight[s] = [];
+        sollinEdge[s] = [];
         for(let c = 0; c < s; c++){
             const w = document.querySelector(".tr" + s + "td" + c).innerText;
             if(w != `o` && w != `x`){
-                sollinWeight[s].push({
+                sollinEdge[s].push({
                     w : parseInt(w),
                     s : c,
                     e : s
@@ -53,33 +43,33 @@ function sollinInit(){
         for(let r = s + 1; r < vertexCnt; r++){
             const w = document.querySelector(".tr" + r + "td" + s).innerText;
             if(w != `o` && w != `x`){
-                sollinWeight[s].push({
+                sollinEdge[s].push({
                     w : parseInt(w),
                     s : s,
                     e : r
                 });
             }
         }
-        sollinWeight[s].sort((a, b) => a.w - b.w);
+        sollinEdge[s].sort((a, b) => a.w - b.w);
     }
 
     while(mstCnt !== vertexCnt - 1){
         for(let s = 0; s < vertexCnt; s++){
             if(mstCnt === vertexCnt - 1) return;
-            if(sollinWeight[s] == null) continue;
-            if(sollinWeight[s].length == 0){
-                sollinWeight.splice(s, 1);
+            if(sollinEdge[s] == null) continue;
+            if(sollinEdge[s].length == 0){
+                sollinEdge.splice(s, 1);
                 continue;
             }
-            let tmp = sollinWeight[s].shift();
-            if(sollinCheck(tmp) === true){
-                selectedWeight.push(tmp);
+            let tmp = sollinEdge[s].shift();
+            if(checkEdge(tmp) === true){
+                visitedEdge.push(tmp);
                 mstAddEdge(tmp);
             }
             else{
-                sollinConcat(sollinCheck(tmp), s);
+                sollinConcat(checkEdge(tmp), s);
             }
         }
-        sollinWeight.sort((a,b) => a[1] - b[1]);
+        sollinEdge.sort((a,b) => a[1] - b[1]);
     }
 }
