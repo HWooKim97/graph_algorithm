@@ -11,7 +11,7 @@ let selection = 0;
 function handleStartBtn(event){
     event.preventDefault();
     if(selection == 1 || selection == 3) mstInit(selection);
-    else floydInit();
+    else spInit(selection);
 }
 
 function handleRightStartInput(event){
