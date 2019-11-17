@@ -18,6 +18,7 @@ function kruskalInit(){
     });
 
     while(weight.length > 0){
+        if(mstCnt === vertexCnt - 1) return;
         mstAddEdge(weight.shift());
     }
 }
