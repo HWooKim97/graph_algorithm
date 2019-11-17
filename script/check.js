@@ -42,9 +42,10 @@ function checkVertex(v) {
     return true;
 }
 
-function checkEdge(e) {
+function checkEdge(edge){
     for(let i = 0; i < visitedEdge.length; i++){
-        if(visitedEdge[i] == e) return false;
+        if(visitedEdge[i].s == edge.s && visitedEdge[i].e == edge.e)
+            return i;
     }
     return true;
 }
