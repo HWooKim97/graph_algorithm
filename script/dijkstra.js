@@ -11,6 +11,17 @@ function findMinWeight(arr){
 }
 
 function djikstraInit(s) {
+    for(let r = 0; r < vertexCnt; r++){
+        for(let c = 0; c < r; c++){
+            const w = document.querySelector(".tr" + r + "td" + c).innerText;
+            if(w != `o` && w != `x`){
+                if(parseInt(w) < 0){
+                    window.alert("(" + r + ", " + c + ")'s weight negative number!\nI can't be sure of this result");
+                }
+            }
+        }
+    }
+    
     let start = s;
 
     djikstraWeight = [];
