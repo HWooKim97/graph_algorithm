@@ -51,6 +51,10 @@ function sollinInit(){
             }
         }
         sollinEdge[s].sort((a, b) => a.w - b.w);
+        if(sollinEdge[s].length === 0){
+            window.alert("Vertex '" + s + "' don't have Edge!");
+            return;
+        }
     }
 
     while(mstCnt !== vertexCnt - 1){
