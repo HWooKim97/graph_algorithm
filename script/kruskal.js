@@ -13,9 +13,7 @@ function kruskalInit(){
             }
         }
     }
-    weight.sort(function(a, b) {
-        return a.w - b.w;
-    });
+    weight.sort((a, b) => a.w - b.w);
 
     while(weight.length > 0){
         if(mstCnt === vertexCnt - 1) return;
