@@ -8,6 +8,22 @@ const btnDiv = document.querySelector(".btnDiv");
 
 let selection = 0;
 
+function drawAllEdge(){
+    graphCTX.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
+    for(let r = 0; r < vertexCnt; r++){
+        for(let c = 0; c < r; c++){
+            const w = document.querySelector(".tr" + r + "td" + c).innerText;
+            if(w != `o` && w != `x`){
+                let edge = {
+                    s : r,
+                    e : c
+                }
+                drawAgain(edge);
+            }
+        }
+    }
+}
+
 function handleStartBtn(event){
     event.preventDefault();
     if(selection == 1 || selection == 3) mstInit(selection);
@@ -59,6 +75,7 @@ function handleSelectChange(){
         inputDiv.classList.add("showing");
     }
     else{
+        drawAllEdge();
         selection = 0;
         weightResult.classList.remove("showing");
         weightResult.classList.add("hiding");
