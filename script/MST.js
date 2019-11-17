@@ -53,8 +53,6 @@ function mstAddEdge(edge){
 
 function mstInit(n, s){
     graphCTX.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
-    while(weightResult.lastChild != null)
-        weightResult.removeChild(weightResult.lastChild);
     
     visitedVertex = [];
     visitedEdge = [];

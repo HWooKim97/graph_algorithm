@@ -9,6 +9,9 @@ const btnDiv = document.querySelector(".btnDiv");
 let selection = 0;
 
 function drawAllEdge(){
+    while(weightResult.lastChild != null)
+        weightResult.removeChild(weightResult.lastChild);
+    
     graphCTX.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
     for(let r = 0; r < vertexCnt; r++){
         for(let c = 0; c < r; c++){
@@ -59,6 +62,9 @@ function handleLeftStartInput(event){
 function handleSelectChange(){
     selection = select.options[select.selectedIndex].value;
 
+    drawAllEdge();
+    rightStartInput.value = ``;
+
     weightResult.classList.remove("hiding");
     weightResult.classList.add("showing");
     
@@ -75,7 +81,6 @@ function handleSelectChange(){
         inputDiv.classList.add("showing");
     }
     else{
-        drawAllEdge();
         selection = 0;
         weightResult.classList.remove("showing");
         weightResult.classList.add("hiding");

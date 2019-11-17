@@ -17,9 +17,6 @@ function spPrint(s, weightArr) {
 }
 
 function spInit(n, s) {
-    while(weightResult.lastChild != null)
-        weightResult.removeChild(weightResult.lastChild);
-    
     visitedVertex = [];
     visitedEdge = [];
     cycleGroup = [];
