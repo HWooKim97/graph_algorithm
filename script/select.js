@@ -10,7 +10,7 @@ let selection = 0;
 
 function handleStartBtn(event){
     event.preventDefault();
-    if(selection == 1) mstInit(selection);
+    if(selection == 1 || selection == 3) mstInit(selection);
     else floydInit();
 }
 
@@ -20,7 +20,7 @@ function handleRightStartInput(event){
         const startVertex = parseInt(this.value);
 
         if(startVertex >= 0 && startVertex < vertexCnt){
-            if(selection > 1 && selection < 4) mstInit(selection, startVertex);
+            if(selection == 2) mstInit(selection, startVertex);
             else spInit(selection, startVertex);
         }
         else window.alert("Start Vertex Number Error!");
@@ -46,7 +46,7 @@ function handleSelectChange(){
     weightResult.classList.remove("hiding");
     weightResult.classList.add("showing");
     
-    if(selection == 1 || selection == 6){
+    if(selection == 1 || selection == 3 || selection == 6){
         inputDiv.classList.remove("showing");
         inputDiv.classList.add("hiding");
         btnDiv.classList.remove("hiding");
