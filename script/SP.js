@@ -1,7 +1,9 @@
-function spPrint(s, e, w) {
-    const div = document.createElement("div");
-    div.innerText = "edge(" + s + "," + e + ")(sp : " + w + ")";
-    weightResult.appendChild(div);
+function spPrint(s, weightArr) {
+    for(let e = 0; e < weightArr.length; e++){
+        const div = document.createElement("div");
+        div.innerText = "edge(" + s + "," + e + ")(sp : " + weightArr[e] + ")";
+        weightResult.appendChild(div);
+    }
 }
 
 function spInit(n, s) {
