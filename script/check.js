@@ -4,8 +4,8 @@ let cycleGroup = [];
 let cycleCnt = 0;
 
 function concatGroup(edge){
-    s = cycleGroup[checkGroup(edge.s)];
-    e = cycleGroup[checkGroup(edge.e)];
+    let s = cycleGroup[checkGroup(edge.s)];
+    let e = cycleGroup[checkGroup(edge.e)];
 
     cycleGroup[checkGroup(edge.s)] = s.concat(e);
 }
