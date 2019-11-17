@@ -1,26 +1,29 @@
 let sollinWeight = [];
 let selectedWeight = [];
 
-function sollinConcat(a, b){
-    for(let i = 0; i < sollinWeight[a].length; i++){
-        if(sollinCheck(sollinWeight[a][i]) !== true){
-            sollinWeight[a].splice(i, 1);
+function sollinConcat(t, s){
+    for(let i = 0; i < sollinWeight[t].length; i++){
+        if(sollinCheck(sollinWeight[t][i]) !== true){
+            sollinWeight[t].splice(i, 1);
         }
     }
-    for(let i = 0; i < sollinWeight[b].length; i++){
-        if(sollinCheck(sollinWeight[b][i]) !== true){
-            sollinWeight[b].splice(i, 1);
+    for(let i = 0; i < sollinWeight[s].length; i++){
+        if(sollinCheck(sollinWeight[s][i]) !== true){
+            sollinWeight[s].splice(i, 1);
         }
     }
-    for(let i = 0; i < sollinWeight[a].length; i++){
-        for(let j = 0; j < sollinWeight[b].length; j++){
-            if(sollinWeight[a][i] === sollinWeight[b][j]){
-                sollinWeight[b].splice(j, 1);
+    for(let i = 0; i < sollinWeight[t].length; i++){
+        for(let j = 0; j < sollinWeight[s].length; j++){
+            if(sollinWeight[t][i] === sollinWeight[s][j]){
+                sollinWeight[s].splice(j, 1);
             }
         }
     }
 
-    sollinWeight[a] = sollinWeight[a].concat(sollinWeight[b]);
+    sollinWeight[t] = sollinWeight[t].concat(sollinWeight[s]);
+    sollinWeight.splice(s, 1);
+
+    sollinWeight[t].sort((a, b) => a.w - b.w);
 }
 
 function sollinCheck(edge){
@@ -57,15 +60,17 @@ function sollinInit(){
                 });
             }
         }
-        sollinWeight[s].sort(function(a, b) {
-            return a.w - b.w;
-        });
+        sollinWeight[s].sort((a, b) => a.w - b.w);
     }
 
     while(mstCnt !== vertexCnt - 1){
         for(let s = 0; s < vertexCnt; s++){
             if(mstCnt === vertexCnt - 1) return;
-            if(sollinWeight[s].length == 0) continue;
+            if(sollinWeight[s] == null) continue;
+            if(sollinWeight[s].length == 0){
+                sollinWeight.splice(s, 1);
+                continue;
+            }
             let tmp = sollinWeight[s].shift();
             if(sollinCheck(tmp) === true){
                 selectedWeight.push(tmp);
@@ -75,5 +80,6 @@ function sollinInit(){
                 sollinConcat(sollinCheck(tmp), s);
             }
         }
+        sollinWeight.sort((a,b) => a[1] - b[1]);
     }
 }
