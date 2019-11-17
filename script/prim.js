@@ -1,45 +1,46 @@
-let treeVertex = [];
-let seenWeight = [];
+let primTreeVertex = [];
+let primSeenWeight = [];
 
 function primCheck(v){
-    for(let i = 0; i < treeVertex.length; i++){
-        if(treeVertex[i] === v) return false;
+    for(let i = 0; i < primTreeVertex.length; i++){
+        if(primTreeVertex[i] === v) return false;
     }
     return true;
 }
 
 function primInit(s){
-    treeVertex = [];
-    seenWeight = [];
+    primTreeVertex = [];
+    primSeenWeight = [];
 
     do{
-        for(let r = s + 1; r < vertexCnt; r++){
-            if(!primCheck(r)) continue;
-            const w = document.querySelector(".tr" + r + "td" + s).innerText;
-            if(w != `o` && w != `x`){
-                seenWeight.push({
-                    w : parseInt(w),
-                    s : s,
-                    e : r
-                });
-            }
-        }
+        if(mstCnt === vertexCnt - 1) return;
         for(let c = 0; c < s; c++){
             if(!primCheck(c)) continue;
             const w = document.querySelector(".tr" + s + "td" + c).innerText;
             if(w != `o` && w != `x`){
-                seenWeight.push({
+                primSeenWeight.push({
                     w : parseInt(w),
                     s : s,
                     e : c
                 });
             }
         }
-        seenWeight.sort(function(a, b) {
+        for(let r = s + 1; r < vertexCnt; r++){
+            if(!primCheck(r)) continue;
+            const w = document.querySelector(".tr" + r + "td" + s).innerText;
+            if(w != `o` && w != `x`){
+                primSeenWeight.push({
+                    w : parseInt(w),
+                    s : s,
+                    e : r
+                });
+            }
+        }
+        primSeenWeight.sort(function(a, b) {
             return a.w - b.w;
         });
-        treeVertex.push(s);
-        s = seenWeight[0].e;
-        mstAddEdge(seenWeight.shift());
-    }while(seenWeight.length > 0) 
+        primTreeVertex.push(s);
+        s = primSeenWeight[0].e;
+        mstAddEdge(primSeenWeight.shift());
+    }while(primSeenWeight.length > 0) 
 }
