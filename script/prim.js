@@ -36,6 +36,10 @@ function primInit(s){
                 });
             }
         }
+        if(primSeenEdge.length === 0){
+            window.alert("Vertex '" + s + "' don't have Edge!");
+            return;
+        }
         primSeenEdge.sort((a, b) => a.w - b.w);
         primTreeVertex.push(s);
         s = primSeenEdge[0].e;
