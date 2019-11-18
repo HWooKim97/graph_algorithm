@@ -29,6 +29,7 @@ function drawAllEdge(){
 
 function handleStartBtn(event){
     event.preventDefault();
+    drawAllEdge();
     if(selection == 1 || selection == 3) mstInit(selection);
     else spInit(selection);
 }
@@ -36,6 +37,7 @@ function handleStartBtn(event){
 function handleRightStartInput(event){
     if(event.keyCode === 13){
         event.preventDefault();
+        drawAllEdge();
         const startVertex = parseInt(this.value);
 
         if(startVertex >= 0 && startVertex < vertexCnt){
