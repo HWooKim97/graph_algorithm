@@ -21,7 +21,7 @@ function bellmanInit(s) {
         bellmanWeight[i] = Number.MAX_VALUE;
     }
 
-    for(let i = 0; i < vertexCnt - 1; i++){
+    for(let i = 0; i < vertexCnt; i++){
         for(let c = 0; c < s; c++){
             const w = document.querySelector(".tr" + s + "td" + c).innerText;
             if(w != `o` && w != `x`){
