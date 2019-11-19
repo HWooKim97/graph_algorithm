@@ -1,6 +1,25 @@
-let floydArr = [];
 function floydInit(){
-    floydArr = [];
+    let neg = false;
+    for(let r = 0; r < vertexCnt; r++){
+        for(let c = 0; c < r; c++){
+            const w = document.querySelector(".tr" + r + "td" + c).innerText;
+            if(w != `o` && w != `x`){
+                if(parseInt(w) < 0){
+                    window.alert("There're negative cycle!\nI can't be sure of this result...");
+                    neg = true;
+                    break;
+                }
+            }
+        }
+        if(neg === true) break;
+    }
+
+    let floydArr = [];
+    let negativeArr = {
+        w : [],
+        r : [],
+        c : []
+    };
     for(let r = 0; r < vertexCnt; r++){
         floydArr[r] = [];
         floydArr[r][r] = 0;
@@ -9,6 +28,13 @@ function floydInit(){
             if(w != `o` && w != `x`){
                 floydArr[r][c] = parseInt(w);
                 floydArr[c][r] = parseInt(w);
+                if(parseInt(w) < 0){
+                    floydArr[r][c] = 0;
+                    floydArr[c][r] = 0;
+                    negativeArr.w.push(parseInt(w));
+                    negativeArr.r.push(r);
+                    negativeArr.c.push(c);
+                }
             }
             else if(w == `x`){
                 floydArr[r][c] = Number.MAX_VALUE;
@@ -28,6 +54,14 @@ function floydInit(){
                 }
             }
         }
+    }
+    
+    while(negativeArr.w.length > 0){
+        let r = negativeArr.r.shift();
+        let c = negativeArr.c.shift();
+        let w = negativeArr.w.shift();
+        floydArr[r][c] += w;
+        floydArr[c][r] += w;
     }
 
     for(let r = 0; r < vertexCnt; r++){
